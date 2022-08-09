@@ -1,4 +1,12 @@
 " Plugin key settings
+
+" -----------------------------------------------------------------------------
+"  Windows resizing with Animation
+nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(-10)<CR>
+nnoremap <silent> <Left>  :call animate#window_delta_width(10)<CR>
+nnoremap <silent> <Right> :call animate#window_delta_width(-10)<CR>
+" -----------------------------------------------------------------------------
 " -----------------------------------------------------------------------------
 " startify 
 let g:startify_list_order = [
@@ -13,9 +21,7 @@ let g:startify_list_order = [
             \]
 
 
-let g:startify_bookmarks = [
-            \ '~/.vim'
-            \]
+let g:startify_bookmarks = []
 
 map <F2> :Startify<CR>
 
@@ -196,7 +202,10 @@ let g:fzf_action = {
 " NerdTree 
 " nnoremap <leader>e :NERDTreeToggle <CR>
 
-nnoremap <leader>e :NERDTreeVCS <CR>
+" nnoremap <leader>e :NERDTreeVCS <CR>
+" nnoremap <leader>e :NERDTreeVCS %<CR>
+nmap <leader>e <Cmd>CocCommand explorer<CR>
+
 
 " -----------------------------------------------------------------------------
 autocmd  FileType go
@@ -229,10 +238,23 @@ if exists('ale')
 endif
 
 " -----------------------------------------------------------------------------
-        nmap <Leader><Leader>w <Plug>(easymotion-w)
-	    nmap <Leader><Leader>f <Plug>(easymotion-f)
-	    nmap <Leader><Leader>b <Plug>(easymotion-b)
+"  easy motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 " -----------------------------------------------------------------------------
 " if exists('vim-which-key')
    "      nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>

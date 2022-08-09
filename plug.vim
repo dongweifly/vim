@@ -1,5 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
+" windows resizing 
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'
+
 " 启动页面
 Plug 'mhinz/vim-startify'
 
@@ -36,12 +40,13 @@ Plug 'plasticboy/vim-markdown'
 
 "左边栏: NerdTree; 右边栏: Tagbar
 "下边栏: Airline
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " 搜索文件内容
+Plug 'rking/ag.vim'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 
@@ -57,6 +62,7 @@ Plug 'scrooloose/syntastic'
 
 " 编程语言支持
 "Plug 'fatih/vim-go'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tmux-plugins/vim-tmux'
 "Plug 'davidhalter/jedi-vim'
 
