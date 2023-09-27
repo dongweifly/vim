@@ -23,19 +23,19 @@ set autoread
 
 " command W w !sudo tee % > /dev/null
 set number
-set relativenumber
+"set relativenumber
 
-augroup linenumbers
-    autocmd!
-    autocmd BufEnter *    :set relativenumber
-    autocmd BufLeave *    :set number norelativenumber
-    autocmd WinEnter *    :set relativenumber
-    autocmd WinLeave *    :set number norelativenumber
-    autocmd InsertEnter * :set number norelativenumber
-    autocmd InsertLeave * :set relativenumber
-    autocmd FocusLost *   :set number norelativenumber
-    autocmd FocusGained * :set relativenumber
-augroup END
+" augroup linenumbers
+"     autocmd!
+"     autocmd BufEnter *    :set relativenumber
+"     autocmd BufLeave *    :set number norelativenumber
+"     autocmd WinEnter *    :set relativenumber
+"     autocmd WinLeave *    :set number norelativenumber
+"     autocmd InsertEnter * :set number norelativenumber
+"     autocmd InsertLeave * :set relativenumber
+"     autocmd FocusLost *   :set number norelativenumber
+"     autocmd FocusGained * :set relativenumber
+" augroup END
 
 set mouse=a
 
@@ -111,6 +111,16 @@ set clipboard=unnamed
 
 " 使用快速滚动, 对用户体验的影响还比较大
 set ttyfast
+
+set pythonthreehome=/Users/liubo/.pyenv/shims/python3
+
+" 保存光标到上次打开的位置
+augroup vimrc-remember-cursor-position
+    autocmd!
+    autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    autocmd BufWritePost * normal! m'
+augroup END
+
 
 autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
 

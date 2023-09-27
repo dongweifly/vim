@@ -13,7 +13,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 " 主题
-" Plug 'liuchengxu/space-vim-dark'
+Plug 'liuchengxu/space-vim-dark'
 Plug 'ericbn/vim-solarized'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'reedes/vim-colors-pencil'
@@ -80,6 +80,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'ironcamel/vim-script-runner'
+
+" code format
+Plug 'vim-autoformat/vim-autoformat'
+
+" Plug 'lambdalisue/vim-pyenv'
 
 call plug#end()
 
