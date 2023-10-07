@@ -263,3 +263,7 @@ map <Leader>k <Plug>(easymotion-k)
    "      nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
 " endif
 " -----------------------------------------------------------------------------
+
+
+" ariline 插件显示git分支
+let g:airline#extensions#branch#enabled = 1

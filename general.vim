@@ -112,5 +112,8 @@ set clipboard=unnamed
 " 使用快速滚动, 对用户体验的影响还比较大
 set ttyfast
 
+set pythonthreehome=/Users/liubo/.pyenv/shims/python3
+
+
 autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
 

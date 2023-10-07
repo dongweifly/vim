@@ -10,15 +10,18 @@ syntax enable
 
 "根据主题的背景色来调整主题
 " if &background ==# 'dark'
-    colorscheme space_vim_theme
+"    colorscheme space_vim_theme
 " else
-    " colorscheme solarized
+"     colorscheme solarized
 " endif
 
 " --------------- space-vim-theme 
 " set background=dark
- " colorscheme space_vim_theme
- " colorscheme space-vim-dark
+
+if($program != "vscode") 
+    colorscheme space_vim_theme
+endif
+" colorscheme space-vim-dark
 
 " --------------- Ocean
   " let g:oceanic_next_terminal_bold = 1

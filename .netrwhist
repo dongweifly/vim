@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/liubo/ClionProject/clangd-test'
+let g:netrw_dirhist_2='/Volumes/U128G/readme_zhaoshang.txt'
+let g:netrw_dirhist_1='/Users/liubo/code/awesome/cpp-awesome/envoy/source/server'
+let g:netrw_dirhist_0='/Users/liubo/code/awesome/cpp-awesome/envoy/source'
+let g:netrw_dirhist_9='/Users/liubo/code/awesome/cpp-awesome/envoy'
+let g:netrw_dirhist_8='/Users/liubo/Downloads/lighttpd-1.4.71/src'
+let g:netrw_dirhist_7='/Users/liubo/nginx_merry'
+let g:netrw_dirhist_6='/Users/liubo/nginx_merry/merry'
+let g:netrw_dirhist_5='/Users/liubo/nginx_merry'
+let g:netrw_dirhist_4='/Users/liubo/nginx_merry/merry'
