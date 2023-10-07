@@ -18,10 +18,11 @@ syntax enable
 " --------------- space-vim-theme 
 " set background=dark
 
-if($program != "vscode") 
-    colorscheme space_vim_theme
-endif
-" colorscheme space-vim-dark
+" if($program != "vscode")
+"     colorscheme space_vim_theme
+" endif
+
+colorscheme space-vim-dark
 
 " --------------- Ocean
   " let g:oceanic_next_terminal_bold = 1
