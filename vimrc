@@ -12,7 +12,8 @@ let g:maplocalleader = ';'
 set history=5000
 
 " 粘贴的带注释会导致一堆的格式问题
-set paste
+" 这个东西打开会会导致COC的提示有问题
+" set paste
 
 "自动设置当前编辑文件所在目录为当前工作路径
 "这个东西是否跟其他的有冲突，待验证
