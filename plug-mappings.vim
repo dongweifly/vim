@@ -84,7 +84,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " vim-project-root 
 if  exists('loaded_projectroot')
-    let g:rootmarkers = ['.idea', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
+    let g:rootmarkers = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
 endif
 
 " 设置ag从当前文件所猜测的工程中的rootdir中开始搜索
@@ -93,7 +93,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " 利用ProjectRootExe可以设置大量在ProjectRoot下面才能运行的key
 " 设置Ack搜索的Keymap
-nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space>
+nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
 
 nnoremap <leader>t :ProjectRootExe terminal<CR>
 
