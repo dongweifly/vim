@@ -87,6 +87,9 @@ if  exists('loaded_projectroot')
     let g:rootmarkers = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
 endif
 
+" 过滤某些不想搜索的文件
+let g:projectroot#exclude = ['node_modules', 'build', '.git']
+
 " 设置ag从当前文件所猜测的工程中的rootdir中开始搜索
 " let g:ackprg = 'ag --vimgrep'
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -165,7 +168,7 @@ if exists('denite.nvim')
         " 当前目录
         nnoremap <silent><localleader>r :Denite file_rec -default-action=vsplit<CR>
         "Denite line
-        nnoremap  <silent><localLeader>l :<C-u>Denite line -auto-preview<CR>
+        nnoremap <silent><localLeader>l :<C-u>Denite line -auto-preview<CR>
         nnoremap <silent><localLeader>w :<C-u>DeniteWithCursorWord line<CR>"
 endif
 

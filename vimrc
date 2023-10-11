@@ -5,6 +5,5 @@ source ~/.vim/mappings.vim
 source ~/.vim/plug.vim
 source ~/.vim/plug-mappings.vim
 source ~/.vim/theme.vim
-source ~/.vim/test.vim
 "
 " filetype plugin on
