@@ -1,6 +1,18 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 启动文件类型检测
+filetype plugin indent on
+
+let mapleader = ","
+let g:maplocalleader = ';'
+
+" 启动文件类型检测
+filetype plugin indent on
+
+let mapleader = ","
+let g:maplocalleader = ';'
+
 " Sets how many lines of history VIM has to rememberk
 set history=5000
 

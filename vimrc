@@ -1,6 +1,3 @@
-" 映射leadermap localleadermap
-source ~/.vim/init.vim
-
 
 " 安装的插件，放到general前面，不能覆盖gerneral的maps
 source ~/.vim/general.vim

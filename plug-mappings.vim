@@ -1,13 +1,13 @@
 " Plugin key settings
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Windows resizing with Animation
 nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>
 nnoremap <silent> <Down>  :call animate#window_delta_height(-10)<CR>
 nnoremap <silent> <Left>  :call animate#window_delta_width(10)<CR>
 nnoremap <silent> <Right> :call animate#window_delta_width(-10)<CR>
-" -----------------------------------------------------------------------------
-" -----------------------------------------------------------------------------
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " startify 
 let g:startify_list_order = [
             \ ['   These are my bookmarks:'],
@@ -25,20 +25,20 @@ let g:startify_bookmarks = []
 
 map <F2> :Startify<CR>
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " comfortable-motion.vim
 "
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  格式化python代码
 " 依赖外部命令，需要安装下面两个工具；
 " pip install autopep8
 " pip install pycodestyle
 " autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "jedi-vim - awesome Python autocompletion with VIM
 " 不使用这个插件的自动补全，只使用它的其他功能
 let g:jedi#completions_enabled = 0
@@ -52,7 +52,7 @@ let g:jedi#completions_enabled = 0
 " let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>99999999r"
 "
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NerdCommenter 
 " Add spaces after comment delimiters by default
@@ -79,7 +79,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ack用ag来搜索
 
 " vim-project-root 
@@ -98,7 +98,7 @@ nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space>
 nnoremap <leader>t :ProjectRootExe terminal<CR>
 
 " nnoremap <leader>g :ProjectRootExe ! git pull
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  解决snnip和YCM冲突的问题
 " function! g:UltiSnips_Complete()
 "   call UltiSnips#ExpandSnippet()
@@ -137,7 +137,7 @@ nnoremap <leader>t :ProjectRootExe terminal<CR>
 " au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>" If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 "
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  方案2：加上下面的配置后你，完全用tab就是好使的
 "" make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -149,12 +149,12 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python-syntax
 "
 " let python_highlight_all = 1
 
-"------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if exists('denite.nvim')
         nnoremap <silent><localLeader>s :call denite#start([{'name': 'grep', 'args': ['', '', '!']}])<cr>
@@ -169,7 +169,7 @@ if exists('denite.nvim')
         nnoremap <silent><localLeader>w :<C-u>DeniteWithCursorWord line<CR>"
 endif
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "if exists('fzf.vim')
 "    nnoremap <silent> <leader>f :call Fzf_dev()<CR>
 "    nnoremap <silent> <leader>r :Rg<CR>
@@ -198,7 +198,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree 
 " nnoremap <leader>e :NERDTreeToggle <CR>
 
@@ -207,7 +207,7 @@ let g:fzf_action = {
 nmap <leader>e <Cmd>CocCommand explorer<CR>
 
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd  FileType go
                   \   nmap <Leader>goi <Plug>(go-info)
                   \ | nmap <Leader>god <Plug>(go-doc)
@@ -219,14 +219,14 @@ autocmd  FileType go
                   \ | nmap <Leader>gr  <Plug>(go-rename)
 
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <localleader>g :TagbarToggle<CR>
 " 鼠标在名字上自动预览；或者p也可以实现预览;
 " let g:tagbar_autopreview = 1
 let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1 
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('ale')
         "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
         nmap [a <Plug>(ale_next_wrap)
@@ -237,7 +237,7 @@ if exists('ale')
         nmap <Leader>d :ALEDetail<CR>
 endif
 
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  easy motion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -255,11 +255,11 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " if exists('vim-which-key')
    "      nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
    "      nnoremap <silent> <localleader> :<c-u>WhichKey  ';'<CR>
    "      nnoremap <silent>[              :<c-u>WhichKey  '['<CR>
    "      nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
 " endif
-" -----------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
