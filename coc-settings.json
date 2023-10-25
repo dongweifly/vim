@@ -2,27 +2,6 @@
     "suggest.noselect": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     "languageserver": {
-        "clangd": {
-            "command" : "clangd",
-            "rootPatterns" : [
-                "compile_flags.txt",
-                "compile_commands.json"
-            ],
-            "filetypes": [
-                "c",
-                "cc",
-                "cpp",
-                "c++",
-                "objc",
-                "objcpp"
-            ],
-            "args": [
-                "--background-index",
-                "--clang-tidy",
-                "--cross-file-rename",
-                "--function-arg-placeholders=false"
-            ]
-        }
     }
 }
 

@@ -87,8 +87,10 @@ if  exists('loaded_projectroot')
     let g:rootmarkers = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
 endif
 
+let g:rootmarkers = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
+
 " 过滤某些不想搜索的文件
-let g:projectroot#exclude = ['node_modules', 'build', '.git']
+let g:projectroot#exclude = ['node_modules', 'build', '.git', '.vscode', '.idea']
 
 " 设置ag从当前文件所猜测的工程中的rootdir中开始搜索
 " let g:ackprg = 'ag --vimgrep'
@@ -98,7 +100,12 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " 设置Ack搜索的Keymap
 nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
 
+" Open terminal at ProjectRootExe Dir
 nnoremap <leader>t :ProjectRootExe terminal<CR>
+" close teminal 
+" tnoremap <esc> <c-\><c-n>:q!<CR><C-w><C-w>
+tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
+
 
 " nnoremap <leader>g :ProjectRootExe ! git pull
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
