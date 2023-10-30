@@ -13,13 +13,14 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 " 主题
-Plug 'liuchengxu/space-vim-dark'
-Plug 'ericbn/vim-solarized'
-Plug 'liuchengxu/space-vim-theme'
-Plug 'reedes/vim-colors-pencil'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'mhartington/oceanic-next'
+" Plug 'liuchengxu/space-vim-dark'
+" Plug 'ericbn/vim-solarized'
+" Plug 'liuchengxu/space-vim-theme'
+" Plug 'reedes/vim-colors-pencil'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'mhartington/oceanic-next'
+Plug 'rafi/awesome-vim-colorschemes'
 
 
 " 友好的移动
