@@ -90,6 +90,7 @@ endif
 " 过滤某些不想搜索的文件
 let g:projectroot#exclude = ['node_modules', 'build', '.git']
 
+set wildignore+=/build/,/node_modules/
 " 设置ag从当前文件所猜测的工程中的rootdir中开始搜索
 " let g:ackprg = 'ag --vimgrep'
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -266,3 +267,8 @@ map <Leader>k <Plug>(easymotion-k)
    "      nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
 " endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+nmap <leader>y <Plug>OSCYankOperator
+nmap <leader>yy <leader>y_
+vmap <leader>y <Plug>OSCYankVisual
