@@ -64,7 +64,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " 编程语言支持
 "Plug 'fatih/vim-go'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 Plug 'tmux-plugins/vim-tmux'
 "Plug 'davidhalter/jedi-vim'
 
@@ -87,6 +88,8 @@ Plug 'ironcamel/vim-script-runner'
 Plug 'vim-autoformat/vim-autoformat'
 
 " Plug 'lambdalisue/vim-pyenv'
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
 
 call plug#end()
 
