@@ -29,12 +29,13 @@ map <F2> :Startify<CR>
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
-" ack用ag来搜索
-" vim-project-root 
-let g:rootmarkers = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
+" vim-rooter
+let g:rooter_patterns = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
+let g:rooter_cd_cmd = 'lcd'
+let g:rooter_patterns = ['=project']
+let g:rooter_change_directory_for_non_project_files = 1
+let g:rooter_silent_chdir = 0
 
-" 过滤某些不想搜索的文件
-let g:projectroot#exclude = ['node_modules', 'build', '.git', '.vscode', '.idea']
 
 set wildignore+=/build/,/node_modules/
 
@@ -44,8 +45,11 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " 利用ProjectRootExe可以设置大量在ProjectRoot下面才能运行的key
 " 设置Ack搜索的Keymap
-nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
-nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
+"nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
+"nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
+
+nmap <C-p> :Files<CR>
+nmap <C-l> :Buffers<CR>
 
 " Open terminal at ProjectRootExe Dir
 nnoremap <leader>t :ProjectRootExe terminal<CR>
@@ -55,8 +59,6 @@ tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nmap <C-p> :ProjectRootExe Files<CR>
-nmap <C-l> :Buffers<CR>
 
 let g:fzf_action = {
   \ 'ctrl-e': 'edit',

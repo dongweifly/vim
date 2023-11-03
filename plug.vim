@@ -32,6 +32,8 @@ Plug 'plasticboy/vim-markdown'
 "左边栏: NerdTree; 右边栏: Tagbar
 "下边栏: Airline
 " Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
+
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -42,8 +44,8 @@ Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 
 " change root dir
-" Plug 'dbakker/vim-projectroot'
-Plug 'airblade/vim-rooter'
+Plug 'dbakker/vim-projectroot'
+"Plug 'airblade/vim-rooter'
 
 " git相关
 Plug 'tpope/vim-fugitive'
@@ -67,7 +69,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'ervandew/supertab'
 
 "fzf
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " code format
