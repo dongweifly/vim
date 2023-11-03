@@ -72,6 +72,7 @@ Plug 'ervandew/supertab'
 "fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 
 " code format
 Plug 'vim-autoformat/vim-autoformat'

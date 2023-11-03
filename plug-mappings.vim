@@ -50,11 +50,12 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " 利用ProjectRootExe可以设置大量在ProjectRoot下面才能运行的key
 " 设置Ack搜索的Keymap
-"nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
-"nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
+nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
+nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
 
-nmap <C-p> :Files<CR>
-nmap <C-l> :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+"nnoremap <C-[> :Buffers<CR>
+nnoremap <C-]> :History<CR> 
 
 " Open terminal at ProjectRootExe Dir
 nnoremap <leader>t :ProjectRootExe terminal<CR>
@@ -70,6 +71,20 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+
+command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
+    \{
+        \'window': {'width': 0.9, 'height': 0.8},
+        \'options': [
+            \'--preview', 'cat {}',
+            \'--preview-window', 'right:50%',
+            \'--bind', 'ctrl-_:toggle-preview'
+        \]
+    \}
+\)
+
+nnoremap <Leader>fm :FZFMru<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <localleader>g :TagbarToggle<CR>
