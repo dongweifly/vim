@@ -23,18 +23,23 @@ let g:startify_list_order = [
 let g:startify_bookmarks = []
 map <F2> :Startify<CR>
 
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" 设置 NERDTree 窗口的宽度为 n 列
+let g:NERDTreeWinSize=7
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " comfortable-motion.vim
 "
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
-" vim-rooter
-let g:rooter_patterns = ['.idea', '.vscode', '.projectroot', '.git', '.hg', '.svn', '.bzr', '_darcs', 'build.xml']
-let g:rooter_cd_cmd = 'lcd'
-let g:rooter_patterns = ['=project']
-let g:rooter_change_directory_for_non_project_files = 1
-let g:rooter_silent_chdir = 0
+" ProjectRoot 查找目录
+let g:rootmarkers = ['.projectroot','.git','.vscode', '.idea', '.hg','.svn','.bzr','_darcs','build.xml']
 
 
 set wildignore+=/build/,/node_modules/

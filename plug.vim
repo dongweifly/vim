@@ -33,6 +33,7 @@ Plug 'plasticboy/vim-markdown'
 "下边栏: Airline
 " Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
