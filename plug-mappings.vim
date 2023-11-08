@@ -52,6 +52,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " 设置Ack搜索的Keymap
 nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
 nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
+nnoremap <leader>d :ProjectRootCD<CR>
 
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-[> :Buffers<CR>
@@ -110,11 +111,11 @@ map <Leader>k <Plug>(easymotion-k)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 在Linux Server下面Copy到剪切板的问题
-if  exists('vim-oscyank')
+"if  exists('vim-oscyank')
      nmap <leader>y <Plug>OSCYankOperator
      nmap <leader>yy <leader>y_
      vmap <leader>y <Plug>OSCYankVisual
-endif
+"endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python 编程支持, 待补充
