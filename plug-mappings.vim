@@ -2,10 +2,10 @@
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Windows resizing with Animation
-nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>
-nnoremap <silent> <Down>  :call animate#window_delta_height(-10)<CR>
-nnoremap <silent> <Left>  :call animate#window_delta_width(10)<CR>
-nnoremap <silent> <Right> :call animate#window_delta_width(-10)<CR>
+nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(10)<CR>
+nnoremap <silent> <Left>  :call animate#window_delta_width(-10)<CR>
+nnoremap <silent> <Right> :call animate#window_delta_width(10)<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " startify 
@@ -66,11 +66,12 @@ tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+"let g:fzf_layout = {'window': 'enew'}
 let g:fzf_action = {
   \ 'ctrl-e': 'edit',
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-x': '50split',
+  \ 'ctrl-v': '50vsplit' }
 
 
 command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
