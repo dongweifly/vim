@@ -68,12 +68,6 @@ tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 
 
 "let g:fzf_layout = {'window': 'enew'}
-let g:fzf_action = {
-  \ 'ctrl-e': 'edit',
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': '50split',
-  \ 'ctrl-v': '50vsplit' }
-
 
 command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
     \{
@@ -85,6 +79,20 @@ command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
         \]
     \}
 \)
+
+function! s:VSplitWithFile(file) abort
+  execute "vsplit" . shellescape(a:file)
+  execute "wincmd l"
+  execute "normal <c-w>="
+endfunction
+
+" TODO: 怎么映射成上面的函数调用
+let g:fzf_action = {
+  \ 'ctrl-e': 'edit',
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 
 nnoremap <Leader>fm :FZFMru<CR>
 
@@ -127,3 +135,5 @@ map <Leader>k <Plug>(easymotion-k)
 " Go 编程支持, 待补充
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Test
+"
