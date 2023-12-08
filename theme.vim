@@ -31,17 +31,11 @@ function! SetRandomColorscheme()
                 \'nord', 
                 \'space-vim-dark', 
                 \'OceanicNext', 
-                \'focuspoint', 
                 \'flattened_dark', 
-                \'deus', 
-                \'sonakai', 
-                \'hybrid_material', 
-                \'carbonized-dark', 
-                \'seoul256']
+                \'hybrid_material']
 
     " 定义亮色主题的配色方案列表
     let light_colorschemes = [
-                \'seoul256-light', 
                 \'carbonized-light', 
                 \'flattened_light']
     " 如果终端的主题是暗色，从暗色主题的配色方案列表中随机选择一个

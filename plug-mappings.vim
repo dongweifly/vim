@@ -127,7 +127,16 @@ map <Leader>k <Plug>(easymotion-k)
 "endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python 编程支持, 待补充
+" C/C++ for clangd
+" coc.nvim configuration for clangd
+let g:coc_global_extensions = ['coc-clangd']
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

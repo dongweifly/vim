@@ -46,13 +46,23 @@ set number
 
 set mouse=a
 
+"manual：手动定义折叠。
+"indent：根据缩进来折叠。
+"expr：使用表达式来定义折叠。
+"syntax：根据语法来折叠。
+"diff：折叠未更改的文本。
+"marker：使用特定标记来折叠。
+set foldmethod=syntax
+
+" 打开文件时默认不折叠代码
+set foldlevelstart=99
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 缩进
 set expandtab                   " tab=空格
 set tabstop=4                   " tab缩进4个空格
 set shiftwidth=4                " 自动缩进空格数
-set softtabstop=4               " 退格删除缩进
-set backspace=indent,start      " 退格可删除缩进和原有字符
+set softtabstop=4               " 退格删除缩进 set backspace=indent,start      " 退格可删除缩进和原有字符
 set autoindent                  " 与前一行同样等级缩进
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索相关
@@ -119,7 +129,9 @@ set clipboard=unnamed
 " 使用快速滚动, 对用户体验的影响还比较大
 set ttyfast
 
-set pythonthreehome=/Users/liubo/.pyenv/shims/python3
+if has('mac')
+    set pythonthreehome=/Users/liubo/.pyenv/shims/python3
+endif
 
 " 保存光标到上次打开的位置
 augroup vimrc-remember-cursor-position
@@ -129,5 +141,5 @@ augroup vimrc-remember-cursor-position
 augroup END
 
 
-autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
+"autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
 

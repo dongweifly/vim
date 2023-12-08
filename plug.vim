@@ -57,6 +57,10 @@ Plug 'scrooloose/syntastic'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+"folder
+Plug 'Konfekt/FastFold'
+Plug 'tmhedberg/SimpylFold'
+
 " 编程语言支持
 "Plug 'fatih/vim-go'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
