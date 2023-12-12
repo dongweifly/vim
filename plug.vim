@@ -48,11 +48,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'dbakker/vim-projectroot'
 "Plug 'airblade/vim-rooter'
 
-" git相关
+" For git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" 语法高亮
+"For golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'scrooloose/syntastic'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -61,8 +63,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
 
-" 编程语言支持
-"Plug 'fatih/vim-go'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim'
 Plug 'tmux-plugins/vim-tmux'
