@@ -52,11 +52,14 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " 设置Ack搜索的Keymap
 nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
 nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
-nnoremap <leader>d :ProjectRootCD<CR>
+nnoremap <LocalLeader>d :ProjectRootCD<CR>
 
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-[> :Buffers<CR>
 nnoremap <C-]> :History<CR> 
+
+nnoremap <LocalLeader>r :ClangFormat<CR> 
+vnoremap <LocalLeader>r :ClangFormat<CR> 
 
 " Open terminal at ProjectRootExe Dir
 nnoremap <leader>t :ProjectRootExe terminal<CR>
@@ -65,8 +68,6 @@ nnoremap <leader>t :ProjectRootExe terminal<CR>
 tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 "let g:fzf_layout = {'window': 'enew'}
 
 command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
@@ -135,7 +136,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

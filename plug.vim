@@ -28,9 +28,6 @@ Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
-
-"左边栏: NerdTree; 右边栏: Tagbar
-"下边栏: Airline
 " Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -68,8 +65,6 @@ Plug 'neoclide/coc.nvim'
 Plug 'tmux-plugins/vim-tmux'
 "Plug 'davidhalter/jedi-vim'
 
-"自动补全
-"
 " Optional:
 Plug 'ervandew/supertab'
 
@@ -80,6 +75,7 @@ Plug 'pbogut/fzf-mru.vim'
 
 " code format
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'rhysd/vim-clang-format'
 
 " Plug 'lambdalisue/vim-pyenv'
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
