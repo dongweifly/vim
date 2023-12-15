@@ -103,7 +103,8 @@ nnoremap <localleader>g :TagbarToggle<CR>
 " 鼠标在名字上自动预览；或者p也可以实现预览;
 " let g:tagbar_autopreview = 1
 let g:tagbar_autofocus=1
-let g:tagbar_autoclose=1 
+let g:tagbar_autoclose=0
+let g:tagbar_width=20
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable default mappings
