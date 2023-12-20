@@ -140,6 +140,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown
+nnoremap <Leader> mk <Plug>MarkdownPreview
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go 编程支持, 待补充
