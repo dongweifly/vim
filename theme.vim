@@ -48,7 +48,8 @@ function! SetRandomColorscheme()
         "let colorscheme = RandomChoice(light_colorschemes)
     "endif
 
-    let colorscheme = 'OceanicNext'
+    "let colorscheme = 'OceanicNext'
+    let colorscheme = 'space-vim-dark'
     " 执行 colorscheme 命令，设置 vim 的配色方案
     execute 'colorscheme' colorscheme
 
