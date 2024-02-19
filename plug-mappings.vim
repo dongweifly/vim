@@ -72,7 +72,7 @@ tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 
 command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
     \{
-        \'window': {'width': 0.9, 'height': 0.8},
+    \'window': {'width': 0.9, 'height': 0.8},
         \'options': [
             \'--preview', 'cat {}',
             \'--preview-window', 'right:50%',
@@ -103,7 +103,7 @@ nnoremap <localleader>g :TagbarToggle<CR>
 " 鼠标在名字上自动预览；或者p也可以实现预览;
 " let g:tagbar_autopreview = 1
 let g:tagbar_autofocus=1
-let g:tagbar_autoclose=0
+let g:tagbar_autoclose=1
 let g:tagbar_width=20
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,9 +123,12 @@ map <Leader>k <Plug>(easymotion-k)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 在Linux Server下面Copy到剪切板的问题
 "if  exists('vim-oscyank')
-     nmap <leader>y <Plug>OSCYankOperator
-     nmap <leader>yy <leader>y_
-     vmap <leader>y <Plug>OSCYankVisual
+
+     "nmap <leader>yy <leader>y_
+     "vmap <leader>y <Plug>OSCYankVisual
+     nmap <LocalLeader>c <Plug>OSCYankOperator
+     nmap <LocalLeader>cc <LocalLeader>c_
+     vmap <LocalLeader>c <Plug>OSCYankVisual
 "endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
