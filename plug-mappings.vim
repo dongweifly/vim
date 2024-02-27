@@ -63,9 +63,7 @@ vnoremap <LocalLeader>r :ClangFormat<CR>
 
 " Open terminal at ProjectRootExe Dir
 nnoremap <leader>t :ProjectRootExe terminal<CR>
-
-" Close teminal 
-tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
+" Close teminal tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:fzf_layout = {'window': 'enew'}
@@ -136,10 +134,14 @@ map <Leader>k <Plug>(easymotion-k)
 " coc.nvim configuration for clangd
 let g:coc_global_extensions = ['coc-clangd']
 
+"coc
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Git 
+nnoremap <silent>gl :Git blame<CR>
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -147,12 +149,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <Leader> mk <Plug>MarkdownPreview
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Go 编程支持, 待补充
+" Go support
 let g:go_gopls_enabled = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 "let g:go_debug = ['lsp']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Test
-"
+

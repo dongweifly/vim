@@ -49,7 +49,8 @@ Plug 'dbakker/vim-projectroot'
 
 " For git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
+Plug 'zivyangll/git-blame.vim'
 
 "For golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
