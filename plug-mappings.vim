@@ -23,13 +23,44 @@ let g:startify_list_order = [
 let g:startify_bookmarks = []
 map <F2> :Startify<CR>
 
+function! NERDTreeToggleSmart()
+    "echo "NERDTreeToggleSmart is called"
+    "for [Key, Value] in items(g:NERDTreeOpener)
+        "echo Value
+    "endfor
+
+    if !g:NERDTree.IsOpen()
+        let cwd = getcwd()
+        let filedir = expand("%:p:h")
+        "echo "cwd is " . cwd
+        "echo "filedir is " . filedir
+        if stridx(filedir, cwd) == 0
+            "echo "NERDTreeFind is executed"
+            NERDTreeFind
+        else
+            "echo "NERDTree is executed"
+            NERDTree
+        endif
+    else
+        "echo "NERDTreeClose is executed"
+        NERDTreeClose
+    endif
+endfunction
+
+map <leader>e :call NERDTreeToggleSmart()<cr>
+
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <leader>e :NERDTreeToggle<CR>
+
+"nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " 设置 NERDTree 窗口的宽度为 n 列
 let g:NERDTreeWinSize=7
+
+
+" 在打开 nerdtree 时自动展开当前文件所在的目录
+" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
