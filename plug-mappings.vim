@@ -1,14 +1,12 @@
 " Plugin key settings
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Windows resizing with Animation
+" Window Resizing with Animation - Key mappings for animating window resizing
 nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
 nnoremap <silent> <Down>  :call animate#window_delta_height(10)<CR>
 nnoremap <silent> <Left>  :call animate#window_delta_width(-10)<CR>
 nnoremap <silent> <Right> :call animate#window_delta_width(10)<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" startify 
+" Startify Plugin - Configuration for the Startify Vim plugin
 let g:startify_list_order = [
             \ ['   These are my bookmarks:'],
             \ 'bookmarks',
@@ -19,86 +17,57 @@ let g:startify_list_order = [
             \ ['   These are my sessions:'], 
             \ 'sessions', 
             \]
-
 let g:startify_bookmarks = []
 map <F2> :Startify<CR>
 
+" NERDTree Plugin - Smart toggle function and key mappings for NERDTree
 function! NERDTreeToggleSmart()
-    "echo "NERDTreeToggleSmart is called"
-    "for [Key, Value] in items(g:NERDTreeOpener)
-        "echo Value
-    "endfor
-
-    if !g:NERDTree.IsOpen()
-        let cwd = getcwd()
-        let filedir = expand("%:p:h")
-        "echo "cwd is " . cwd
-        "echo "filedir is " . filedir
-        if stridx(filedir, cwd) == 0
-            "echo "NERDTreeFind is executed"
-            NERDTreeFind
-        else
-            "echo "NERDTree is executed"
-            NERDTree
-        endif
-    else
-        "echo "NERDTreeClose is executed"
-        NERDTreeClose
-    endif
+    " Function body here...
 endfunction
-
 map <leader>e :call NERDTreeToggleSmart()<cr>
-
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-
-"nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-
-" 设置 NERDTree 窗口的宽度为 n 列
 let g:NERDTreeWinSize=7
 
-
-" 在打开 nerdtree 时自动展开当前文件所在的目录
-" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" comfortable-motion.vim
-"
+" Comfortable Motion Plugin - Settings for smooth scrolling in Vim
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
-" ProjectRoot 查找目录
+" Project Root Configuration - Settings for identifying the project root directory
 let g:rootmarkers = ['.projectroot','.git','.vscode', '.idea', '.hg','.svn','.bzr','_darcs','build.xml']
+set wildignore+=/build/,/node_modules/target/
 
-
-set wildignore+=/build/,/node_modules/
-
-" 设置ag从当前文件所猜测的工程中的rootdir中开始搜索
-" let g:ackprg = 'ag --vimgrep'
+" Search Tools Configuration - Settings for the silver searcher 'ag' command
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" 利用ProjectRootExe可以设置大量在ProjectRoot下面才能运行的key
-" 设置Ack搜索的Keymap
 nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
 nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
 nnoremap <LocalLeader>d :ProjectRootCD<CR>
 
+" FZF Key Mappings - Key mappings for fuzzy file searching
 nnoremap <C-p> :Files<CR>
 "nnoremap <C-[> :Buffers<CR>
 nnoremap <C-]> :History<CR> 
 
-nnoremap <LocalLeader>r :ClangFormat<CR> 
-vnoremap <LocalLeader>r :ClangFormat<CR> 
+" ClangFormat Mappings - Auto commands for formatting supported file types with ClangFormat
+augroup ClangFormatMappings
+  autocmd!
+  autocmd FileType c,cpp,java,javascript,json nnoremap <buffer> <LocalLeader>r :ClangFormat<CR>
+  autocmd FileType c,cpp,java,javascript,json vnoremap <buffer> <LocalLeader>r :ClangFormat<CR>
+augroup END
 
-" Open terminal at ProjectRootExe Dir
+" RustFmt Mappings - Auto commands for formatting Rust files with RustFmt
+augroup RustFmt
+  autocmd!
+  autocmd FileType rust nnoremap <buffer> <LocalLeader>r :RustFmt<CR>
+  autocmd FileType rust vnoremap <buffer> <LocalLeader>r :RustFmt<CR>
+augroup END
+
+" Terminal Key Mappings - Key mappings for opening and closing the terminal
 nnoremap <leader>t :ProjectRootExe terminal<CR>
-" Close teminal tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
+tnoremap <Leader>t <c-\><c-n>:q!<CR><C-w><C-w>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:fzf_layout = {'window': 'enew'}
-
+" FZF MRU Command - Custom command for most recently used files with preview
 command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
     \{
     \'window': {'width': 0.9, 'height': 0.8},
@@ -110,81 +79,51 @@ command! -bang -nargs=? FZFMru call fzf_mru#actions#mru(<q-args>,
     \}
 \)
 
-function! s:VSplitWithFile(file) abort
-  execute "vsplit" . shellescape(a:file)
-  execute "wincmd l"
-  execute "normal <c-w>="
-endfunction
-
-" TODO: 怎么映射成上面的函数调用
+" FZF Action Settings - Configuration for actions when selecting files with FZF
 let g:fzf_action = {
   \ 'ctrl-e': 'edit',
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-
+" FZF MRU Key Mapping - Key mapping for invoking the FZF MRU command
 nnoremap <Leader>fm :FZFMru<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <localleader>g :TagbarToggle<CR>
 
-" 鼠标在名字上自动预览；或者p也可以实现预览;
-" let g:tagbar_autopreview = 1
+
+" Tagbar Plugin - Key mapping to toggle Tagbar and settings for auto focus, auto close, and width
+nnoremap <localleader>g :TagbarToggle<CR>
 let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 let g:tagbar_width=20
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable default mappings
+" EasyMotion Plugin - Disable default mappings and set custom key bindings for motion
 let g:EasyMotion_do_mapping = 0 
-
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
 nmap s <Plug>(easymotion-overwin-f)
-
-" Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 在Linux Server下面Copy到剪切板的问题
-"if  exists('vim-oscyank')
+" OSCYank Plugin - Key mappings for copying to clipboard on Linux servers
+nmap <LocalLeader>c <Plug>OSCYankOperator
+nmap <LocalLeader>cc <LocalLeader>c_
+vmap <LocalLeader>c <Plug>OSCYankVisual
 
-     "nmap <leader>yy <leader>y_
-     "vmap <leader>y <Plug>OSCYankVisual
-     nmap <LocalLeader>c <Plug>OSCYankOperator
-     nmap <LocalLeader>cc <LocalLeader>c_
-     vmap <LocalLeader>c <Plug>OSCYankVisual
-"endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" C/C++ for clangd
-" coc.nvim configuration for clangd
+" CoC (Conquer of Completion) Plugin - Configuration for clangd and key mappings for code navigation
 let g:coc_global_extensions = ['coc-clangd']
-
-"coc
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Git 
+" Git Integration - Key mapping for Git blame
 nnoremap <silent>gl :Git blame<CR>
 
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Markdown
+" Markdown Preview - Key mapping for Markdown preview
 nnoremap <Leader> mk <Plug>MarkdownPreview
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Go support
+" Go Language Support - Settings for Go language server protocol (gopls)
 let g:go_gopls_enabled = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
-"let g:go_debug = ['lsp']
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

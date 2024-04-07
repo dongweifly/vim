@@ -1,6 +1,10 @@
 {
     "suggest.noselect": true,
     "coc.preferences.extensionUpdateCheck": "daily",
+    "rust-analyzer.enable": true,
+    "rust-analyzer.cargo.allFeatures": true,
+    "rust-analyzer.server.path": "/Users/liubo/.cargo/bin/rust-analyzer",
+
     "languageserver": {
         "clangd": {
             "command": "clangd",
