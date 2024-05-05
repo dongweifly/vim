@@ -1,145 +1,186 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 启动文件类型检测
+" Enable filetype detection
 filetype plugin indent on
 
+" Set leader keys
 let mapleader = ","
 let g:maplocalleader = ';'
 
-" Sets how many lines of history VIM has to rememberk
+" Set command history length
 set history=5000
 
-" 粘贴的带注释会导致一堆的格式问题
-" set paste
-
-"自动设置当前编辑文件所在目录为当前工作路径
-"这个东西是否跟其他的有冲突，待验证
-" set autochdir
-
-" 自动切换到某一个工作目录中
-" exec 'cd ' . fnameescape('/tmp')
-
-" 设置不兼容模式
+" Set compatibility mode off
 set nocp
-" 不产生交换文件
+
+" Disable swap file creation
 set noswapfile
-" 文件改变后自动加载
+
+" Enable auto-reading of files when changed from the outside
 set autoread
 
-" command W w !sudo tee % > /dev/null
+" Display line numbers
 set number
-"set relativenumber
 
-" augroup linenumbers
-"     autocmd!
-"     autocmd BufEnter *    :set relativenumber
-"     autocmd BufLeave *    :set number norelativenumber
-"     autocmd WinEnter *    :set relativenumber
-"     autocmd WinLeave *    :set number norelativenumber
-"     autocmd InsertEnter * :set number norelativenumber
-"     autocmd InsertLeave * :set relativenumber
-"     autocmd FocusLost *   :set number norelativenumber
-"     autocmd FocusGained * :set relativenumber
-" augroup END
-
+" Enable mouse support
 set mouse=a
 
-"manual：手动定义折叠。
-"indent：根据缩进来折叠。
-"expr：使用表达式来定义折叠。
-"syntax：根据语法来折叠。
-"diff：折叠未更改的文本。
-"marker：使用特定标记来折叠。
+" Set folding method based on syntax
 set foldmethod=syntax
 
-" 打开文件时默认不折叠代码
+" Start with all folds open
 set foldlevelstart=99
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 缩进
-set expandtab                   " tab=空格
-set tabstop=4                   " tab缩进4个空格
-set shiftwidth=4                " 自动缩进空格数
-set softtabstop=4               " 退格删除缩进 set backspace=indent,start      " 退格可删除缩进和原有字符
-set autoindent                  " 与前一行同样等级缩进
+" => Indentation Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 搜索相关
-set showmatch                   " 短暂回显匹配括号
-set hlsearch                    " 检索时高亮显示匹配项
-set incsearch                   " 边输入边搜索
-set ignorecase                  " 搜索忽略大小写
-set smartcase                   " 智能大小写搜索
+
+" Convert tabs to spaces
+set expandtab
+
+" Set tab width
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Enable auto-indentation
+set autoindent
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Search Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Highlight matching brackets
+set showmatch
+
+" Highlight search results
+set hlsearch
+
+" Enable incremental search
+set incsearch
+
+" Ignore case in search patterns
+set ignorecase
+
+" Override ignorecase if search pattern contains uppercase letters
+set smartcase
+
+" Enable smart tab
 set smarttab
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set scrolljump=3                " 当光标离开屏幕滑动行数
-set scrolloff=1                 " 保持在光标上下最少行数, 最低下能写多少行
-set hidden                      " 允许不保存切换buffer
+" => Interface Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Configure backspace so it acts as it should act
+" Set scroll jump and offset
+set scrolljump=3
+set scrolloff=1
+
+" Allow hidden buffers
+set hidden
+
+" Configure backspace behavior
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw 
+" Do not redraw during macros for better performance
+set lazyredraw
 
-" For regular expressions turn magic on
+" Enable extended regular expressions
 set magic
 
-" How many tenths of a second to blink when matching brackets
+" Set match time for bracket blinking
 set mat=2
 
-" No annoying sound on errors
+" Disable error bells
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 编码相关
-set encoding=utf-8              " 编码，使汉语正常显示
+" => Encoding Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set encoding for proper display of characters
+set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,gb2312,gbk,gb18030
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 真彩色
+" => True Color Support
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable true color support if available
 if has("termguicolors")
-    let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-    let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-    " enable true color
     set termguicolors
 endif
 
-" let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
-" ESC后，中英文切换的问题
-let g:XkbSiwtchLib='/usr/local/lib/libxkbswitch.dylib'
-
-"适配上面的问题中搜狗输入法的问题
-set iminsert=2
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" => Clipboard and External Command Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim和系统共享剪切板, 连接上的远程vim中的内容可能不好使；
-" 在vim中使用y,p; 在系统中使用<M-C> <M-V>二者是等价的；
-" 但是不能在vim中使用<M-C> <M-V>
-" VIM中设置set mouse=a的情况，支持使用鼠标选中，然后用y复制；
+
+" Share system clipboard with Vim
 set clipboard=unnamed
 
-" 使用快速滚动, 对用户体验的影响还比较大
+" Enable fast terminal communication
 set ttyfast
 
-if has('mac')
-    set pythonthreehome=/Users/liubo/.pyenv/shims/python3
-endif
-
-" 保存光标到上次打开的位置
+" Save cursor position when file is closed
 augroup vimrc-remember-cursor-position
     autocmd!
     autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     autocmd BufWritePost * normal! m'
 augroup END
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Key Mapping Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
+" Key mappings for various actions
+nnoremap <Leader>r :source $MYVIMRC<CR>
+noremap <Leader>w :w<CR>
+nnoremap <Leader>q <esc>:q<CR>
+nnoremap <Leader><leader>q <esc>:wq<CR>
+inoremap <C-O> <Esc>o
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bd  :bd<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nmap <leader>tn :tabnew<cr>
+nmap <leader>te :tabedit
+nmap <leader>tc :tabclose<cr>
+nmap <leader>tm :tabmove
+nmap <c-tab> v>
+nmap <s-tab> v<
+vmap <c-tab> >gv
+vmap <s-tab> <gv
+nmap <leader>h :tabprevious<CR>
+nmap <leader>l :tabnext<CR>
+nmap <C-w>[ :vertical resize -3<CR>
+nmap <C-w>] :vertical resize +3<CR>
+
+" Function to zoom in/out the current window
+function! Zoom ()
+    if tabpagenr('$') > 1 && tabpagewinnr(tabpagenr(), '$') == 1
+        let l:cur_winview = winsaveview()
+        let l:cur_bufname = bufname('')
+        tabclose
+        if l:cur_bufname == bufname('')
+            call winrestview(l:cur_winview)
+        endif
+    else
+        tab split
+    endif
+endfunction
+
+nmap <leader>z :call Zoom()<CR>
 

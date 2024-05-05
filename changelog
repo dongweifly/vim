@@ -1,6 +1,13 @@
 
 TODO List
 
+V0.2
+1. config file combation; general + plugin 
+2. 搞清楚每一个配置项的作用
+3. COC 配置；
+4. 解决一些bug，比如rust编程有时会卡住； NerdTree 不好使;
+5. 注释全部英文化；
+6. ubuntu server 下面copy 数据内容，到剪切板的问题;
 
 V0.1
 0. 任意环境一键安装； 
