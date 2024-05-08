@@ -233,10 +233,20 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+
+" Function to check if the cursor is after a whitespace or at the start of the line
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+         
+" Use the Tab key to navigate through CoC autocompletion options. 
+" The Tab key also functions as a regular tab insertion when 
+" there is no autocompletion suggestion or after a whitespace character.
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+      \ "\<Tab>"
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
