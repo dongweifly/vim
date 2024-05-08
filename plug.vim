@@ -7,7 +7,6 @@ Plug 'camspiers/lens.vim' " Auto-resize windows
 
 " User interface enhancements
 Plug 'mhinz/vim-startify' " Startup page
-Plug 'yuttie/comfortable-motion.vim' " Smooth scrolling
 Plug 'vim-airline/vim-airline' " Status/tabline
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'liuchengxu/space-vim-dark'
@@ -15,6 +14,7 @@ Plug 'liuchengxu/space-vim-dark'
 " Navigation and search tools
 Plug 'christoomey/vim-tmux-navigator' " Tmux integration
 Plug 'preservim/nerdtree' " File explorer
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlight for NERDTree
 Plug 'majutsushi/tagbar' " Code structure display
 Plug 'easymotion/vim-easymotion' " Motion plugin
@@ -120,20 +120,8 @@ map <F2> :Startify<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => File Explorer Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! NERDTreeToggleSmart()
-    " Function body here...
-endfunction
-map <leader>e :call NERDTreeToggleSmart()<cr>
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-let g:NERDTreeWinSize=7
+" TODO: NERDTree Config
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Scrolling Behavior
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:comfortable_motion_scroll_down_key = "j"
-let g:comfortable_motion_scroll_up_key = "k"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Project and Search Configuration
@@ -194,11 +182,26 @@ nnoremap <localleader>g :TagbarToggle<CR>
 let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 let g:tagbar_width=20
-let g:EasyMotion_do_mapping = 0
-nmap s <Plug>(easymotion-overwin-f;
+
+" EasyMotion mappings
+" Jump to any character forward
+map f <Plug>(easymotion-overwin-f)       
+" Jump to any character forward (shorter version)
+map ff <Plug>(easymotion-s)
+" Jump to the start of a word forward
+map fs <Plug>(easymotion-f) 
+" Jump to the start of a line forward
+map fl <Plug>(easymotion-lineforward)   
+" Jump to any line downward
+map fj <Plug>(easymotion-j)           
+" Jump to any line upward
+map fk <Plug>(easymotion-k)  
+" Jump to the start of a line backward
+map fh <Plug>(easymotion-linebackward) 
+
+
 let g:EasyMotion_smartcase = 1
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Clipboard and External Command Integration

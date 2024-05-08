@@ -142,7 +142,6 @@ augroup END
 nnoremap <Leader>r :source $MYVIMRC<CR>
 noremap <Leader>w :w<CR>
 nnoremap <Leader>q <esc>:q<CR>
-nnoremap <Leader><leader>q <esc>:wq<CR>
 inoremap <C-O> <Esc>o
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bn<CR>
