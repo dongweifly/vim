@@ -80,8 +80,8 @@ endfunction
 
 " Apply random color scheme on Vim start
 "autocmd VimEnter * call SetRandomColorscheme()
-"colorscheme space-vim-dark
-colorscheme darkblue
+colorscheme space-vim-dark
+"colorscheme darkblue
 
 hi Comment cterm=italic
 
@@ -210,11 +210,18 @@ vmap <LocalLeader>c <Plug>OSCYankVisual
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocompletion and Language Server Protocol
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" More configure : https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 let g:coc_global_extensions = ['coc-clangd']
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Version Control System Integration
