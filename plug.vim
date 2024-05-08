@@ -10,6 +10,7 @@ Plug 'mhinz/vim-startify' " Startup page
 Plug 'vim-airline/vim-airline' " Status/tabline
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'liuchengxu/space-vim-dark'
+Plug 'altercation/vim-colors-solarized'
 
 " Navigation and search tools
 Plug 'christoomey/vim-tmux-navigator' " Tmux integration
@@ -80,27 +81,39 @@ endfunction
 
 " Apply random color scheme on Vim start
 "autocmd VimEnter * call SetRandomColorscheme()
-colorscheme space-vim-dark
+"colorscheme space-vim-dark
+
+if exists('$ITERM_PROFILE')
+    if match($ITERM_PROFILE, 'dark') != -1 
+        colorscheme space-vim-dark
+
+        hi Comment cterm=italic
+
+        " If you want to make the backgound transparent, override the related items in
+        " your vimrc. from : https://github.com/liuchengxu/space-vim-dark
+        " USE TERMINAL BACKGROUND
+
+        "hi Normal     ctermbg=NONE guibg=NONE
+        "hi LineNr     ctermbg=NONE guibg=NONE
+        "hi SignColumn ctermbg=NONE guibg=NONE
+
+        " If you prefer the grey comment:
+        hi Comment guifg=#5C6370 ctermfg=59
+
+        " Vim Script
+        let g:airline_theme='violet'
+
+        " Vim Script
+        let g:lightline = {'colorscheme': 'violet'}
+    else
+        colorscheme solarized
+        let g:solarized_termcolors=256
+        let g:solarized_italic=1
+    endif
+endif
+
 "colorscheme darkblue
 
-hi Comment cterm=italic
-
-" If you want to make the backgound transparent, override the related items in
-" your vimrc. from : https://github.com/liuchengxu/space-vim-dark
-" USE TERMINAL BACKGROUND
-
-"hi Normal     ctermbg=NONE guibg=NONE
-"hi LineNr     ctermbg=NONE guibg=NONE
-"hi SignColumn ctermbg=NONE guibg=NONE
-
-" If you prefer the grey comment:
-hi Comment guifg=#5C6370 ctermfg=59
-
-" Vim Script
-let g:airline_theme='violet'
-
-" Vim Script
-let g:lightline = {'colorscheme': 'violet'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Window Management
