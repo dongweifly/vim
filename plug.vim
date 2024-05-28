@@ -83,35 +83,28 @@ endfunction
 "autocmd VimEnter * call SetRandomColorscheme()
 "colorscheme space-vim-dark
 
-if exists('$ITERM_PROFILE')
-    if match($ITERM_PROFILE, 'dark') != -1 
-        colorscheme space-vim-dark
-
-        hi Comment cterm=italic
-
-        " If you want to make the backgound transparent, override the related items in
-        " your vimrc. from : https://github.com/liuchengxu/space-vim-dark
-        " USE TERMINAL BACKGROUND
-
-        "hi Normal     ctermbg=NONE guibg=NONE
-        "hi LineNr     ctermbg=NONE guibg=NONE
-        "hi SignColumn ctermbg=NONE guibg=NONE
-
-        " If you prefer the grey comment:
+" 定义一个函数来设置主题
+function! SetTheme(theme, airline_theme, lightline_theme)
+    execute 'colorscheme ' . a:theme
+    let g:airline_theme=a:airline_theme
+    let g:lightline = {'colorscheme': a:lightline_theme}
+    if a:theme == 'space-vim-dark'
         hi Comment guifg=#5C6370 ctermfg=59
+    endif
+endfunction
 
-        " Vim Script
-        let g:airline_theme='violet'
 
-        " Vim Script
-        let g:lightline = {'colorscheme': 'violet'}
+if exists('$ITERM_PROFILE')
+    if match($ITERM_PROFILE, 'dark') != -1
+        call SetTheme('space-vim-dark', 'violet', 'violet')
     else
-        colorscheme solarized
+        call SetTheme('solarized', 'solarized', 'solarized')
         let g:solarized_termcolors=256
         let g:solarized_italic=1
     endif
+else
+    call SetTheme('space-vim-dark', 'violet', 'violet')
 endif
-
 "colorscheme darkblue
 
 
