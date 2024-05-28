@@ -17,6 +17,7 @@ Plug 'christoomey/vim-tmux-navigator' " Tmux integration
 Plug 'preservim/nerdtree' " File explorer
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax highlight for NERDTree
+Plug 'ryanoasis/vim-devicons' 
 Plug 'majutsushi/tagbar' " Code structure display
 Plug 'easymotion/vim-easymotion' " Motion plugin
 Plug 'rking/ag.vim' " Use ag for searching
@@ -135,6 +136,23 @@ map <F2> :Startify<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO: NERDTree Config
 
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+let g:NERDTreeWinSize=5
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" Start NERDTree when Vim starts with a directory argument.
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    "\ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+
+nnoremap <Leader>e :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Project and Search Configuration
