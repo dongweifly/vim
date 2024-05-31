@@ -167,6 +167,10 @@ nmap <leader>l :tabnext<CR>
 nmap <C-w>[ :vertical resize -3<CR>
 nmap <C-w>] :vertical resize +3<CR>
 
+nnoremap <F5> :noh<CR>
+" Esc 键后立即取消高亮
+" nnoremap <Esc> :noh<CR><Esc>
+
 " Function to zoom in/out the current window
 function! Zoom ()
     if tabpagenr('$') > 1 && tabpagewinnr(tabpagenr(), '$') == 1

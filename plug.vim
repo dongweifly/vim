@@ -26,6 +26,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder
 Plug 'junegunn/fzf.vim' " FZF integration for Vim
 Plug 'pbogut/fzf-mru.vim' " FZF most recently used files
 
+
 " Editing enhancements
 Plug 'terryma/vim-multiple-cursors' " Multiple cursors
 Plug 'scrooloose/nerdcommenter' " Commenting utility
@@ -80,9 +81,8 @@ function! SetRandomColorscheme()
     execute 'colorscheme' colorscheme
 endfunction
 
-" Apply random color scheme on Vim start
-"autocmd VimEnter * call SetRandomColorscheme()
-"colorscheme space-vim-dark
+
+" TODO: airline config 
 
 " 定义一个函数来设置主题
 function! SetTheme(theme, airline_theme, lightline_theme)
@@ -134,10 +134,6 @@ let NERDTreeDirArrows = 1
 
 let g:NERDTreeWinSize=5
 
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
 " Start NERDTree when Vim starts with a directory argument.
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
@@ -156,8 +152,12 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <Leader>f :ProjectRootExe Ack<space>-i<space><cword><CR>
 nnoremap <LocalLeader>f :ProjectRootExe Ack<space>-i<space>
 nnoremap <LocalLeader>d :ProjectRootCD<CR>
+
+let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f'
+
 nnoremap <C-p> :Files<CR>
 nnoremap <C-]> :History<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code Formatting and Syntax
