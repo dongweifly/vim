@@ -6,24 +6,6 @@
     "rust-analyzer.server.path": "/Users/liubo/.cargo/bin/rust-analyzer",
 
     "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "args": [
-                "--compile-commands-dir=build"
-            ],
-            "rootPatterns": [
-                "compile_commands.json",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "filetypes": [
-                "c",
-                "cpp",
-                "objc",
-                "objcpp"
-            ]
-        },
         "go": {
             "command": "gopls",
             "rootPatterns": [
