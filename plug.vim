@@ -25,7 +25,7 @@ Plug 'mileszs/ack.vim' " Use ack for searching
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder
 Plug 'junegunn/fzf.vim' " FZF integration for Vim
 Plug 'pbogut/fzf-mru.vim' " FZF most recently used files
-
+Plug 'RRethy/vim-illuminate'
 
 " Editing enhancements
 Plug 'terryma/vim-multiple-cursors' " Multiple cursors
@@ -112,10 +112,10 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Window Management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
-nnoremap <silent> <Down>  :call animate#window_delta_height(10)<CR>
-nnoremap <silent> <Left>  :call animate#window_delta_width(-10)<CR>
-nnoremap <silent> <Right> :call animate#window_delta_width(10)<CR>
+"nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
+"nnoremap <silent> <Down>  :call animate#window_delta_height(10)<CR>
+"nnoremap <silent> <Left>  :call animate#window_delta_width(-10)<CR>
+"nnoremap <silent> <Right> :call animate#window_delta_width(10)<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Startup Configuration
@@ -157,6 +157,46 @@ let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.idea,.vscode,.sass-cache,node_mo
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-]> :History<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Project and Search Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"function! HighlightContext()
+    "if mode() ==# 'v'
+        "" 获取当前光标下的单词
+        "let selected_word = expand('<cword>')
+        "let selected_word_escaped = escape(selected_word, '/\.*$^~[]')
+
+        "" 打印选中的单词
+        "echom "Selected Word: " . selected_word_escaped
+
+        "" 移除之前的高亮
+        "try
+            "call matchdelete('SearchWord')
+        "catch
+            "" ignore errors
+        "endtry
+
+        "" 在上下文中高亮相同的单词
+        "execute 'match SearchWord /' . '\V\<' . selected_word_escaped . '\>/'
+
+    "endif
+"endfunction
+
+"" 定义一个高亮组
+""highlight SearchWord ctermfg=251 ctermbg=97 guifg=#c6c6c6 guibg=#875faf
+"highlight SearchWord cterm=underline
+
+"" 每次光标移动时触发函数
+"autocmd CursorMoved * call HighlightContext()
+"autocmd CursorHold * call HighlightContext()
+
+"highlight IlluminateDefault guibg=blue
+"highlight illuminatedWord ctermbg=blue guibg=blue
+highlight illuminatedWord cterm=underline
+let g:Illuminate_delay = 500
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
